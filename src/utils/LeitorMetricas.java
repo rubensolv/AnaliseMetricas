@@ -122,6 +122,7 @@ public class LeitorMetricas {
 				sumTemp.setLTD2(new BigDecimal(split[4]));
 				
 				summaries.add(sumTemp);
+				
 				linha = learArq.readLine();
 				
 			}

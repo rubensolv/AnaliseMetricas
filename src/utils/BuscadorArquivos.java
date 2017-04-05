@@ -25,5 +25,19 @@ public class BuscadorArquivos {
         //else if (arquivo.getName().indexOf(palavra) > -1) lista.add(arquivo.getAbsolutePath());
         return lista;
     }
+	
+	public static ArrayList<String> buscarParcial(File arquivo, String palavra, ArrayList<String> lista) {
+        if (arquivo.isDirectory()) {
+            File[] subPastas = arquivo.listFiles();
+            for (int i = 0; i < subPastas.length; i++) {
+                lista = buscarParcial(subPastas[i], palavra, lista);
+                if (arquivo.getName().equalsIgnoreCase(palavra)) lista.add(arquivo.getAbsolutePath());
+                else if (arquivo.getName().contains(palavra)) lista.add(arquivo.getAbsolutePath());
+            }
+        }
+        else if (arquivo.getName().equalsIgnoreCase(palavra)) lista.add(arquivo.getAbsolutePath());
+        else if (arquivo.getName().contains(palavra)) lista.add(arquivo.getAbsolutePath());
+        return lista;
+    }
 
 }

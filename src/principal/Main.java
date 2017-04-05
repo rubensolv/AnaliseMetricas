@@ -24,14 +24,14 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		for (int numEst = 3; numEst < 9; numEst++) {
+		for (int numEst = 1; numEst < 2; numEst++) {
 			
-			File diretorio = new File("/media/rubens/Dados/MetricDados/Simulacao/EstadoNumber" + numEst);
+			File diretorio = new File("/media/rubens/Dados/MetricDados/SimAmostragem/Simulacao50UnAmostra3/EstadoNumber" + numEst);
 			System.out.println("Lendo estado "+numEst);
 			ArrayList<String> listaArquivos = new ArrayList<>();
 
 			System.out.println("Iniciando busca dos arquivos...");
-			for (int i = 1; i < 793; i++) {
+			for (int i = 1; i < 2; i++) {
 				System.out.println("Buscando estado " + i);
 				BuscadorArquivos.buscar(diretorio, "estado_" + i, listaArquivos);
 			}
