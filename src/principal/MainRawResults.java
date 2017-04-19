@@ -18,7 +18,7 @@ public class MainRawResults {
 
 	public static void main(String[] args) {
 		System.out.println("Iniciando busca de arquivos..." + Calendar.getInstance().getTime().toString());
-		for (int i = 2; i < 3; i++) {
+		for (int i = 8; i < 9; i++) {
 			File diretorio = new File(
 					"/media/rubens/Dados/MetricDados/Simulacao/EstadoNumber" + i + "/");
 					//"/media/rubens/Dados/MetricDados/SimAmostragem/Simulacao50UnAmostra3/EstadoNumber" + i + "/");
@@ -57,8 +57,8 @@ public class MainRawResults {
 				}
 
 			}
-			System.out.print("Abstracao;PlayerGAB;qtdVitorias;MediaUnits;MediaLifeDragoon;MediaLifeZealots;");
-			System.out.println(        "PlayerPGS;qtdVitorias;MediaUnits;MediaLifeDragoon;MediaLifeZealots");
+			System.out.print("Abstracao;PlayerGAB;qtdVitorias;TotalUnidades;MediaLifeDragoon;MediaLifeZealots;");
+			System.out.println(        "PlayerPGS;qtdVitorias;TotalUnidades;MediaLifeDragoon;MediaLifeZealots");
 			for (Integer key : mapAbstract.keySet()) {
 				
 				BigDecimal PGSSumZea = BigDecimal.ZERO, GABSumZea = BigDecimal.ZERO, PGSSumDrag = BigDecimal.ZERO,
@@ -88,18 +88,18 @@ public class MainRawResults {
 				calc.setScale(3, RoundingMode.CEILING);
 				if(GABqtd == 0){
 					calc = new BigDecimal(GABTotUn).divide(BigDecimal.ONE,3,RoundingMode.CEILING);
-					System.out.print("GAB;" +GABqtd+";"+calc.toString() +";" +GABSumDrag.divide(new BigDecimal(1), RoundingMode.CEILING).toString() + ";" + GABSumZea.divide(new BigDecimal(1), RoundingMode.CEILING).toString() + ";");
+					System.out.print("GAB;" +GABqtd+";"+GABTotUn+";" +GABSumDrag.divide(new BigDecimal(1), RoundingMode.CEILING).toString() + ";" + GABSumZea.divide(new BigDecimal(1), RoundingMode.CEILING).toString() + ";");
 				}else{
 					calc = new BigDecimal(GABTotUn).divide(new BigDecimal(GABqtd),3,RoundingMode.CEILING);
-					System.out.print("GAB;" +GABqtd+";"+calc.toString() +";" +GABSumDrag.divide(new BigDecimal(GABqtd), RoundingMode.CEILING).toString() + ";" + GABSumZea.divide(new BigDecimal(GABqtd), RoundingMode.CEILING).toString() + ";");
+					System.out.print("GAB;" +GABqtd+";"+GABTotUn +";" +GABSumDrag.divide(new BigDecimal(GABqtd), RoundingMode.CEILING).toString() + ";" + GABSumZea.divide(new BigDecimal(GABqtd), RoundingMode.CEILING).toString() + ";");
 				}
 				
 				if(PGSqtd == 0){
 					calc = new BigDecimal(PGSTotUn).divide(BigDecimal.ONE,3,RoundingMode.CEILING);
-					System.out.println("PGS;"+PGSqtd+";"+calc.toString() +";" + PGSSumDrag.divide(new BigDecimal(1), RoundingMode.CEILING).toString() + ";" + PGSSumZea.divide(new BigDecimal(1), RoundingMode.CEILING).toString());	
+					System.out.println("PGS;"+PGSqtd+";"+PGSTotUn +";" + PGSSumDrag.divide(new BigDecimal(1), RoundingMode.CEILING).toString() + ";" + PGSSumZea.divide(new BigDecimal(1), RoundingMode.CEILING).toString());	
 				}else{
 					calc = new BigDecimal(PGSTotUn).divide(new BigDecimal(PGSqtd),3,RoundingMode.CEILING);
-					System.out.println("PGS;"+PGSqtd+";"+calc.toString() +";" + PGSSumDrag.divide(new BigDecimal(PGSqtd), RoundingMode.CEILING).toString() + ";" + PGSSumZea.divide(new BigDecimal(PGSqtd), RoundingMode.CEILING).toString());
+					System.out.println("PGS;"+PGSqtd+";"+PGSTotUn +";" + PGSSumDrag.divide(new BigDecimal(PGSqtd), RoundingMode.CEILING).toString() + ";" + PGSSumZea.divide(new BigDecimal(PGSqtd), RoundingMode.CEILING).toString());
 				}
 				
 				
